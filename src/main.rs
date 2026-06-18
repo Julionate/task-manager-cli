@@ -1,3 +1,4 @@
+mod app_state;
 mod initialize;
 mod input;
 mod menus;

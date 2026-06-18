@@ -1,3 +1,4 @@
+use crate::app_state::AppState;
 use crate::input::read_input;
 
 pub enum MenuActions {
@@ -7,15 +8,18 @@ pub enum MenuActions {
     Exit,
 }
 
-pub fn main_menu() -> MenuActions {
-    println!("1. Manage Tasks\n2. List Tasks\n3. Save Tasks\n'Exit' to leave");
+pub fn main_menu() -> AppState {
+    println!("1. Manage Tasks");
+    println!("2. List Tasks");
+    println!("3. Save Tasks");
+    println!("'Exit' to leave");
     let input = read_input();
 
     match input.to_lowercase().trim() {
-        "1" => MenuActions::ManageTasks,
-        "2" => MenuActions::ListTasks,
-        "3" => MenuActions::SaveTasks,
-        "exit" => MenuActions::Exit,
+        "1" => AppState::ManageTasks,
+        "2" => AppState::ListTasks,
+        "3" => AppState::SaveTasks,
+        "exit" => AppState::Exit,
         _ => {
             println!("Invalid Operation");
             main_menu()
@@ -23,15 +27,28 @@ pub fn main_menu() -> MenuActions {
     }
 }
 
-pub fn manage_task_menu() {
-    println!("Choose a new option...")
+pub fn manage_task_menu() -> AppState {
+    println!("1. Create");
+    println!("2. Edit");
+    println!("3. Delete");
+    println!("'Back' to go back");
+    let input = read_input();
+
+    match input.to_lowercase().trim() {
+        "1" => AppState::CreateTask,
+        "2" => AppState::EditTask,
+        "3" => AppState::DeleteTask,
+        "back" => AppState::MainMenu,
+        _ => AppState::ManageTasks,
+    }
 }
-pub fn list_task_menu() {
-    println!("Showing tasks...")
+pub fn list_task_menu() -> AppState {
+    AppState::ListTasks
 }
-pub fn save_task_menu() {
-    println!("Are you sure to save?")
+pub fn save_task_menu() -> AppState {
+    AppState::SaveTasks
 }
-pub fn exit_program() {
-    println!("Closing Task Manager CLI, goodbye!")
+pub fn exit_program() -> AppState {
+    println!("Closing Task Manager CLI, goodbye friend!");
+    AppState::Exit
 }
