@@ -1,13 +1,6 @@
 use crate::app_state::AppState;
 use crate::input::read_input;
 
-pub enum MenuActions {
-    ManageTasks,
-    ListTasks,
-    SaveTasks,
-    Exit,
-}
-
 pub fn main_menu() -> AppState {
     println!("1. Manage Tasks");
     println!("2. List Tasks");
