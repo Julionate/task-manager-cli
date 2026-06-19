@@ -1,9 +1,7 @@
-mod app_state;
-mod initialize;
-mod input;
-mod menus;
+mod enums;
+mod models;
+mod utils;
 
 fn main() {
-    println!("Welcome to Task Manager CLI, choose an option");
-    initialize::init();
+    println!("Welcome to Task Manager CLI");
 }
