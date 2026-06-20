@@ -26,7 +26,7 @@ impl Tasks {
         for task in &self.tasks {
             println!("#######################");
             println!("ID: {}", task.get_id());
-            println!("Description: {}", task.get_id());
+            println!("Description: {}", task.get_description());
             println!("Status: {}", task.get_status_string());
             println!("#######################");
         }
