@@ -22,6 +22,12 @@ impl Tasks {
         self.last_id += 1
     }
 
+    pub fn update_task(&mut self, id: u32, new_description: String) {
+        if let Some(task) = self.tasks.iter_mut().find(|task| task.get_id() == id) {
+            task.update_description(new_description);
+        }
+    }
+
     pub fn list_tasks(&self) {
         for task in &self.tasks {
             println!("#######################");
@@ -30,5 +36,9 @@ impl Tasks {
             println!("Status: {}", task.get_status_string());
             println!("#######################");
         }
+    }
+
+    pub fn number_of_tasks(&self) -> u32 {
+        self.tasks.len() as u32
     }
 }

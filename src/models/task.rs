@@ -30,4 +30,8 @@ impl Task {
             status,
         }
     }
+
+    pub fn update_description(&mut self, new_description: String) {
+        self.description = new_description
+    }
 }
