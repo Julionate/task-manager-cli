@@ -28,6 +28,12 @@ impl Tasks {
         }
     }
 
+    pub fn delete_task(&mut self, id: u32) {
+        if let Some(index) = self.tasks.iter().position(|task| task.get_id() == id) {
+            self.tasks.remove(index);
+        }
+    }
+
     pub fn list_tasks(&self) {
         for task in &self.tasks {
             println!("#######################");
