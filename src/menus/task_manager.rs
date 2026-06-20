@@ -1,4 +1,3 @@
-use crate::app::App;
 use crate::enums::AppState;
 use crate::models::tasks::Tasks;
 use crate::utils::input::read_input;
