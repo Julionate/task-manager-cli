@@ -7,4 +7,5 @@ pub enum AppState {
     TaskSelector,
     TasksList,
     TasksSave,
+    Exit,
 }
